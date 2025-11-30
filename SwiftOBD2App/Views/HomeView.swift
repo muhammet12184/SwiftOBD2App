@@ -26,6 +26,16 @@ struct HomeView: View {
                                     destination: VehicleDiagnosticsView(displayType: $displayType, isDemoMode: $isDemoMode)
                         )
 
+                        SectionView(title: "Markalar",
+                                    subtitle: "Tüm araç markalarını keşfet",
+                                    iconName: "car.3.sequence.fill",
+                                    destination: BrandExplorerView(isDemoMode: $isDemoMode))
+                        .simultaneousGesture(TapGesture().onEnded {
+                            withAnimation {
+                                displayType = .none
+                            }
+                        })
+
                         SectionView(title: "Logs",
                                     subtitle: "View Logs",
                                     iconName: "flowchart",
